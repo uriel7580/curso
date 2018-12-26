@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <button id="envia">Solicitar</button>
+    <div>
+        <table>
+            <thead>
+                <TH>qweqwdasda</TH>
+            </thead>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#envia").click(function () {
+                $.get("https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json", function (data, status) {
+                    console.log("datos",data);
+                    //alert("Data: " + data + "\nStatus: " + status);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

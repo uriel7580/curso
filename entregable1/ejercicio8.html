@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<body>
+    
+    <button id="enviar">Solicitar</button>
+    <ul id="demo"></ul>
+
+    <script>
+        $(document).ready(function () {
+            $("#enviar").click(function () {
+                $("#demo").empty();
+                /*$.get("http://api.plos.org/search?q=title:DNA", function (data, status) {
+                    var cantidad = data.length;
+                    if(cantidad > 0){
+                        for (var i = 0; i < cantidad; i++) {
+                        $("#demo").append("<li>" + data[i].clave + ' ' + data[i].descripcion + "</li>");
+                    }
+                    }else{
+                        $("#demo").append("<li>datos no registradas</li>");
+                    }
+                });*/
+                $.get("https://jsonplaceholder.typicode.com/posts", function (data, status) {
+                    debugger;
+                    var cantidad = data.length;
+                    if(cantidad > 0){
+                        for (var i = 0; i < cantidad; i++) {
+                        $("#demo").append("<li>" + data[i].id + ' ' + data[i].title + "</li>");
+                    }
+                    }else{
+                        $("#demo").append("<li>datos no registradas</li>");
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>

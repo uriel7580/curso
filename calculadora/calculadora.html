@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form name="calculadora">
+        <input type="number"id="n1"><br/>
+        <select name="operador" id="operador">
+            <option value="1">+</option>
+            <option value="2">-</option>
+            <option value="3">x</option>
+            <option value="4">/</option>
+        </select><br/>
+        <input type="number"id="n2"><br/>
+        <button type="button" onclick="myFunction()">=</button><br/>
+        <output id="resultado"></output><br/>
+    </form>
+
+<p id="demo"></p>
+
+<script>
+
+function myFunction() {
+    var res;
+    var x=document.getElementById("n1").value;
+var y=document.getElementById("n2").value;
+switch(document.getElementById("operador").value){
+    case '1':res= Integer.parseInt(x); break;
+    case '2':res= x-y; break;
+    case '3':res= x*y; break;
+    case '4':res= x/y; break;
+}
+
+document.getElementById("resultado").innerHTML=res;
+}
+</script>
+
+</body>
+</html>

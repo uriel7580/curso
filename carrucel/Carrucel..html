@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <form action="valor">
+            <button type="button" href="#" onclick="mover(+1)">Atras</button>
+            <div>
+                <table>
+                    <tr>
+                        <td><img id="img1" src="1.png"></td>
+                    </tr>
+                </table>
+            </div>
+            <button type="button" href="#" onclick="mover(-1)">Adelante</button>
+    </form>
+</body>
+<script>
+var fotos=['1.png','2.png','3.png','4.png','5.png','6.png'];
+var img1=1;
+var img2=2;
+var img3=3;
+var a=0;
+function mover(val){
+    if(val=+1){
+        
+    }else{
+
+    }
+    if(a=0)a=6;
+    document.getElementById("img1").src = fotos[a+val];
+    window.alert(document.getElementById("img1").src = fotos[a]);
+}
+</script>
+</html>

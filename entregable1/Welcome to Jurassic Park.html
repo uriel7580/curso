@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Jurassic Park</title>
+</head>
+<body>
+    <form action="">
+        <select name="" id="especie">
+            <option value="T-Rex">T-Rex</option>
+            <option value="Triceratopo">Triceratopo</option>
+            <option value="Brontosaurio">Brontosaurio</option>
+            <option value="Velociraptor">Velociraptor</option>
+        </select><br/>
+        <input type="text" id="nombre"/><br/>
+        <input type="number" id="peso"/><br/>
+        <select name="" id="genero">
+            <option value="0">sexo</option>
+            <option value="Macho">Macho</option>
+            <option value="Hembra">Hembra</option>
+        </select>
+        <button type="button" onclick="guardar()">Guardar</button>
+        <table>
+            <thead>
+                <th>T-Rex</th>
+                <th>Triceratopo</th>
+                <th>Brontosaurio</th>
+                <th>Velociraptor</th>
+            </thead>
+            <tbody>
+                <td id="r"></td>
+                <td id="t"></td>
+                <td id="b"></td>
+                <td id="v"></td>
+            </tbody>
+        </table>
+    </form>
+</body>
+<script>
+    var parke=[{"especie":"T-Rex","nombre":"T-Rex","peso":20,"genero":"Macho"},
+    {"especie":"Brontosaurio","nombre":"Brontosaurio","peso":34,"genero":"Hembra"},
+    {"especie":"Velociraptor","nombre":"Velociraptor","peso":34,"genero":"Macho"}
+    ]
+    var rex=0, vel=0, tri=0, bront=0;
+    console.log("datos",parke.length);
+        console.log("datos",parke);
+    function guardar(){
+        var esp=document.getElementById("especie").value;
+        var nom=document.getElementById("nombre").value;
+        var t=document.getElementById("peso").value;
+        var sexo=document.getElementById("genero").value;
+        var n=parke.length
+        
+        parke[n]={"especie":esp,"nombre":nom,"peso":t,"genero":sexo}
+        console.log("datos",parke.length);
+        console.log("datos",parke);
+        
+    }
+    for(var i=0; i < parke.length; i++){
+            console.log("datasdasos",parke[i].especie);
+            if (parke[i].especie=="T-Rex") {
+                rex++;
+            } else if(parke[i].especie=="Triceratopo"){
+                tri++;
+            }else if(parke[i].especie=="Brontosaurio"){
+                bront++;
+            }else{
+                vel++;
+            }
+        }
+        document.getElementById("r").innerHTML=rex;
+        document.getElementById("t").innerHTML=tri;
+        document.getElementById("b").innerHTML=bront;
+        document.getElementById("v").innerHTML=vel;
+</script>
+</html>
