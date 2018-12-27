@@ -1,0 +1,1 @@
+require(['jquery','core/first'],function(jQuery){window.jQuery=jQuery;require(['theme_mb2nl/bootstrap','core/log'],function(b,log){jQuery('[data-toggle="tooltip"]').tooltip();jQuery('[data-toggle="popover"]').popover()})})
