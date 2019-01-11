@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="ui.bootstrap.demo">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>modalexample</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.css">
+    <script src="controlador.js"></script>
+</head>
+<body>
+        <div ng-controller="ModalDemoCtrl as pc" class="modal-demo">
+                <button type="button" class="btn btn-default" ng-click="pc.open()">Open me!</button>
+                <button type="button" class="btn btn-default" ng-click="pc.open('lg')">Large modal</button>
+                <button type="button" class="btn btn-default" ng-click="pc.open('sm')">Small modal</button>
+                <div>data in controller : <strong>{{ pc.data }}</strong></div>
+            </div>
+    
+</body>
+</html>
