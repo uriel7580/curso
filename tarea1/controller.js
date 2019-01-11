@@ -1,4 +1,5 @@
-angular.module("ev1",[]).controller("controlador",function($scope){
+var app = angular.module("ev1",[]);
+app.controller("controlador",function($scope){
     
     $scope.accion="yomero";
 
