@@ -1,24 +1,33 @@
 <!DOCTYPE html>
-<html ng-app="ui.bootstrap.demo">
+<html ng-app="appcontroller">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>modalexample</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
-    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.css">
-    <script src="controlador.js"></script>
+    <title>Entregable 1</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="libs/controller.js"></script>
 </head>
-<body>
-        <div ng-controller="ModalDemoCtrl as pc" class="modal-demo">
-                <button type="button" class="btn btn-default" ng-click="pc.open()">Open me!</button>
-                <button type="button" class="btn btn-default" ng-click="pc.open('lg')">Large modal</button>
-                <button type="button" class="btn btn-default" ng-click="pc.open('sm')">Small modal</button>
-                <div>data in controller : <strong>{{ pc.data }}</strong></div>
-            </div>
-    
+
+<body ng-controller="controlador">
+    <div class="row">
+        <!--agregar usuario-->
+        <div onclick="agregar()" >
+            <div class="col-md-2"><img src="img/agregar.png" alt=""></div>
+            <label class="btn btn-primary">Agregar Registro</label>
+        </div>
+
+        <!--ver lista-->
+        <div onclick="mostrar()">
+            <div><img src="img/lista.png" alt=""></div>
+            <label>Ver Registros</label>
+        </div>
+    </div>
+
 </body>
+
 </html>
