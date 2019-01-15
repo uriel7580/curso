@@ -5,28 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Entregable 1</title>
+    <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
-    <script src="libs/controller.js"></script>
+    <script src="controller.js"></script>
 </head>
 
 <body ng-controller="controlador">
-    <div class="row">
-        <!--agregar usuario-->
-        <div onclick="agregar()" >
-            <div class="col-md-2"><img src="img/agregar.png" alt=""></div>
-            <label class="btn btn-primary">Agregar Registro</label>
-        </div>
+    <div class="container">
+        <form class="row justify-content-md-center">
+            <div class="form-group">
+                <label class="alert {{color.mensaje}} col-md-12">{{mensaje}}</label></br>
+                <div class="row">
+                    <div class="input-group col-md-6 ">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Nombre completo</span>
+                        </div>
+                        <input type="text" class="form-control border {{color.Nombre}}" ng-model="datos.Nombre" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="input-group col-md-6">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text ">Fecha de Nacimiento:</span>
+                            </div>
+                            <input type="date" class="form-control border {{color.Fecha_n}}" ng-model="datos.Fecha_n" required>
+                        </div>
+                    <div class="input-group col-md-6">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Correo:</span>
+                        </div>
+                        <input type="email" class="form-control border {{color.Correo}}" ng-model="datos.Correo" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                            required>
+                    </div>
 
-        <!--ver lista-->
-        <div onclick="mostrar()">
-            <div><img src="img/lista.png" alt=""></div>
-            <label>Ver Registros</label>
-        </div>
+                    <div class="input-group col-md-6">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text ">Tema:</span>
+                        </div>
+                        <select ng-model="tema" class="form-control border {{color.tema}}">
+                                <!-- <option selected="selected">Seleccione tema</option> -->
+                            <option ng-repeat="t in Temas" >{{t.descripcion}}</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-5">
+                    <button type="button" ng-click="enviar()" class="btn btn-primary">Enviar</button>
+                </div>
+
+                <div class="col-md-5">
+                    <button type="reset" class="btn btn-primary">Cancelar</button>
+                </div>
+            </div>
+        </form>
     </div>
+
 
 </body>
 
