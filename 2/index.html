@@ -104,11 +104,10 @@
                     <td>{{row.Nombre}}</td>
                     <td>{{row.Apellidos}}</td>
                     <td>{{row.genero}}</td>
-                    <td>{{row.Fecha_n}}</td>
+                    <td>{{row.Fecha_n|date:"dd/MM/yyyy"}}</td>
                     <td>{{row.Correo}}</td>
-                    <td><button class="btn btn-info" ng-click="borrar(row.id)">borrar</button></td>
-                    <td><button class="btn btn-info" ng-click="editar(row.id,row.Nombre,row.Apellidos,row.genero,row.Fecha_n,row.Correo)">editar</button></td>
-
+                    <td><img src="img/delete.png" style="max-width: 80px;" alt="Borrar" ng-click="borrar(row.id)"></button></td>
+                    <td><img  src="img/edit-flat.png" style="max-width: 80px"  ng-click="editar(row.id)"/></td>
                 </tr>
             </table>
         </div>

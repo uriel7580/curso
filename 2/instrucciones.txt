@@ -1,0 +1,5 @@
+Nota: el equipo desde el cual se ejecute debe de estar conectado a la red
+1.- abbrir el archivo index.html
+2.- seleccionar la accion a realizar en el menu principal
+3.-dependiedo de la opcion selecciona, seleccionar o rellenar los campos solicitados
+4.- las opciones cancelar y regresar muestran el menu principal
