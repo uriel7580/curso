@@ -23,11 +23,13 @@ angular.module("appcontroller", ['ngAnimate', 'ngSanitize', 'ui.bootstrap'])
 
         $scope.enviar = function () {
             var i, c, letra=0, espacio=0;
-            $scope.fechahoy = new Date();
-            //$scope.datos.Fecha_n;
-            console.log( $scope.fechahoy+" "+ $scope.datos.Fecha_n);
-            //var utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
-//   var utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+            var yactual = new Date().getFullYear();
+            var a1 , totala;
+            a1=new Date($scope.datos.Fecha_n).getFullYear();
+            totala=yactual-a1;
+            if(totala>15 && totala<120){
+                console.log( a1+" "+a2+"años");
+            }
             
             if (($scope.datos.Nombre != "" && $scope.datos.Nombre != undefined)) {
                 for (i = 0; i < $scope.datos.Nombre.length; i++) {
