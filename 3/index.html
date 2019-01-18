@@ -26,40 +26,37 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Nombre completo</span>
                         </div>
-                        <input type="text" class="form-control border {{color.Nombre}}" ng-model="datos.Nombre"
-                            placeholder="Nombre completo" required>
+                        <input type="text" class="form-control border {{color.Nombre}}" ng-model="datos.Nombre" placeholder="Nombre completo" required>
                     </div>
-                    <div class="col-md-3"></div>
+                    <div class="col-md-3"></div></br><div class="col-md-3"></div>
                     <div class="input-group col-md-6">
                         <div class="input-group-prepend">
                             <span class="input-group-text ">Fecha de Nacimiento:</span>
                         </div>
-                        <input type="date" class="form-control border {{color.Fecha_n}}" ng-model="datos.Fecha_n"
-                            required>
+                        <input type="date" class="form-control border {{color.Fecha_n}}" ng-model="datos.Fecha_n"  required>
                     </div>
-                    <div class="col-md-3"></div>
+                    <div class="col-md-3"></div><div class="col-md-3"></div>
                     <div class="input-group col-md-6">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Correo:</span>
                         </div>
-                        <input type="email" class="form-control border {{color.Correo}}" ng-model="datos.Correo"
-                            ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+                        <input type="email" class="form-control border {{color.Correo}}" ng-model="datos.Correo" placeholder="e@mail.com" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
                     </div>
-                    <div class="col-md-3"></div>
+                    <div class="col-md-3"></div><div class="col-md-3"></div>
                     <div class="input-group col-md-6">
                         <div class="input-group-prepend">
-                            <span class="input-group-text ">Tema:</span>
+                            <span class="input-group-text col-md-12">Tema:</span>
                         </div>
                         <select ng-model="datos.tema" class="form-control border {{color.tema}}">
                             <option ng-repeat="t in Temas">{{t.descripcion}}</option>
                         </select>
                     </div>
-                    <div class="col-md-3"></div>
+                    <div class="col-md-3"></div><div class="col-md-3"></div>
                     <div class="input-group col-md-6">
                         <div class="input-group-prepend">
-                            <span class="input-group-text ">Comentario:</span>
+                            <span class="input-group-text col-md-12">Comentario:</span>
                         </div>
-                        <textarea class="form-control" ng-model="datos.Comentario" maxlength="1000"></textarea>
+                        <textarea class="form-control col-md-12 border {{color.Comentario}}" ng-model="datos.Comentario" placeholder="hola mundo este es un Correo por post"  maxlength="1000"></textarea>
                     </div>
                 </div>
 
@@ -70,13 +67,13 @@
                 </div>
 
                 <div class="col-md-5">
-                    <button type="reset" class="btn btn-primary">Cancelar</button>
+                    <button type="reset" class="btn btn-primary" ng-click="datos = {}">Cancelar</button>
                 </div>
             </div>
         </form>
         
 
-        <div ng-show="mostrar" class="mensaje">
+        <div ng-show="mostrar" class="mensaje container justify-content-md-center">
             <div class="row">
                     <label class="alert alert-primary col-md-12">ENVIAR MENSAJE??</label></br>
                 <div class="col-md-5">
@@ -97,11 +94,12 @@
         .mensaje {
           transition: all linear 0.5s;
           background-color: lightblue;
-          height: 100px;
-          width: 100%;
+          height: 150px;
+          width: 40%;
           position: fixed;
-          top: 0;
-          left: 0;
+          top: 180px;
+          left: 430px;
+          text-align: center;
         }
         
         .ng-hide {
