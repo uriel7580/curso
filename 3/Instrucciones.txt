@@ -1,0 +1,16 @@
+Instrucciones
+- Entar al siguiente enlace  https://hrumentregable2.000webhostapp.com
+
+- El nombre completo deberá de tener al menos 3 palabras.
+
+- El correo electrónico deberá tener un formato válido (por ejemplo persona@correo.com). el correo que se incluya aqui debe se ser el del destinatario
+
+- La fecha de nacimiento no podrá ser menor a 15 años ni mayor a 120.
+
+- El tema deberá seleccionarse de la lista.
+
+- El comentario es un texto abierto que no debe exceder 1000 caracteres ni encontrarse en blanco.
+
+- En caso de ser necesario revisar el funcionamiento en el servidor, Entar al siguiente enlace https://www.000webhost.com
+nombre del sitio: hrumentregable2
+contraseña: contraseña
