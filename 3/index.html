@@ -7,47 +7,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <script src="controller.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body ng-controller="controlador">
     <div class="container">
-        <form class="row justify-content-md-center">
+        <form class="row justify-content-md-center" method="post" action="controller.php">
             <div class="form-group">
-                <label class="alert {{color.mensaje}} col-md-12">{{mensaje}}</label></br>
+                <label class="alert {{color.mensaje}} col-md-12">{{mensaje}}</label>
                 <div class="row">
                     <div class="col-md-3"></div>
                     <div class="input-group col-md-6">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Nombre completo</span>
                         </div>
-                        <input type="text" class="form-control border {{color.Nombre}}" ng-model="datos.Nombre" placeholder="Nombre completo" required>
+                        <input type="text" id="NombreCompleto" name="NombreCompleto" class="form-control border {{color.Nombre}}" ng-model="datos.Nombre" placeholder="Nombre completo" required>
                     </div>
-                    <div class="col-md-3"></div></br><div class="col-md-3"></div>
+                    <div class="col-md-3"></div><div class="col-md-3"></div>
                     <div class="input-group col-md-6">
                         <div class="input-group-prepend">
                             <span class="input-group-text ">Fecha de Nacimiento:</span>
                         </div>
-                        <input type="date" class="form-control border {{color.Fecha_n}}" ng-model="datos.Fecha_n"  required>
+                        <input type="date" id="Fecha_Nacimiento" name="Fecha_Nacimiento" class="form-control border {{color.Fecha_n}}" ng-model="datos.Fecha_n"  required>
                     </div>
                     <div class="col-md-3"></div><div class="col-md-3"></div>
                     <div class="input-group col-md-6">
                         <div class="input-group-prepend">
                             <span class="input-group-text">Correo:</span>
                         </div>
-                        <input type="email" class="form-control border {{color.Correo}}" ng-model="datos.Correo" placeholder="e@mail.com" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
+                        <input type="email" id="Correo" name="Correo" class="form-control border {{color.Correo}}" ng-model="datos.Correo" placeholder="e@mail.com" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required>
                     </div>
                     <div class="col-md-3"></div><div class="col-md-3"></div>
                     <div class="input-group col-md-6">
                         <div class="input-group-prepend">
                             <span class="input-group-text col-md-12">Tema:</span>
                         </div>
-                        <select ng-model="datos.tema" class="form-control border {{color.tema}}">
+                        <select ng-model="datos.tema" id="Tema" name="Tema" class="form-control border {{color.tema}}">
                             <option ng-repeat="t in Temas">{{t.descripcion}}</option>
                         </select>
                     </div>
@@ -56,7 +57,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text col-md-12">Comentario:</span>
                         </div>
-                        <textarea class="form-control col-md-12 border {{color.Comentario}}" ng-model="datos.Comentario" placeholder="hola mundo este es un Correo por post"  maxlength="1000"></textarea>
+                        <textarea id="Comentario" name="Comentario" class="form-control col-md-12 border {{color.Comentario}}" ng-model="datos.Comentario" placeholder="hola mundo este es un Correo por post"  maxlength="1000"></textarea>
                     </div>
                 </div>
 
@@ -70,45 +71,20 @@
                     <button type="reset" class="btn btn-primary" ng-click="datos = {}">Cancelar</button>
                 </div>
             </div>
-        </form>
-        
-
-        <div ng-show="mostrar" class="mensaje container justify-content-md-center">
-            <div class="row">
-                    <label class="alert alert-primary col-md-12">ENVIAR MENSAJE??</label></br>
-                <div class="col-md-5">
-                    <button type="button" ng-click="confirmar()" class="btn btn-primary">Enviar</button>
-                </div>
-
-                <div class="col-md-5">
-                    <button class="btn btn-primary" ng-click="Cancelar()">Cancelar</button>
+            <div ng-show="mostrar" class="mensaje container justify-content-md-center">
+                <div class="row">
+                        <label class="alert alert-primary col-md-12">ENVIAR MENSAJE??</label>
+                    <div class="col-md-5">
+                        <button type="submit" ng-click="confirmar()" class="btn btn-primary">Enviar</button>
+                    </div>
+    
+                    <div class="col-md-5">
+                        <button class="btn btn-primary" ng-click="Cancelar()">Cancelar</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
         
     </div>
-
-
 </body>
-<style>
-        .mensaje {
-          transition: all linear 0.5s;
-          background-color: lightblue;
-          height: 150px;
-          width: 40%;
-          position: fixed;
-          top: 180px;
-          left: 430px;
-          text-align: center;
-        }
-        
-        .ng-hide {
-          height: 0;
-          width: 0;
-          background-color: transparent;
-          top:-200px;
-          left: 200px;
-        }
-        
-        </style>
 </html>

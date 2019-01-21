@@ -10,7 +10,7 @@ angular.module("appcontroller", ['ngAnimate', 'ngSanitize', 'ui.bootstrap'])
         var errores = 0;
         $http({
             method: 'GET',
-            url: 'http://cursos.ectotec.com/javascript/api/temas'
+            url: 'https://raw.githubusercontent.com/uriel7580/curso/v3m2/temasectotec.json'
         }).then(function (response) {
             $scope.Temas = response.data;
         });
@@ -24,20 +24,20 @@ angular.module("appcontroller", ['ngAnimate', 'ngSanitize', 'ui.bootstrap'])
             fnacimiento = new Date($scope.datos.Fecha_n).getFullYear();
             edad = factual - fnacimiento;
             //validacion de nombre
-            if (($scope.datos.Nombre != "" && $scope.datos.Nombre != undefined)) {
+            if (($scope.datos.Nombre !== "" && $scope.datos.Nombre !== undefined)) {
                 for (i = 0; i < $scope.datos.Nombre.length; i++) {
                     c = $scope.datos.Nombre[i];
-                    c != " " ? letra++ : espacio++
+                    c !== " " ? letra++ : espacio++;
                 }
 
                 if (espacio >= 2 && letra >= espacio && letra < $scope.datos.Nombre.length) {
                     $scope.mensaje = "Ingresa los datos requeridos";
                     $scope.color.Nombre = 'border-success';
-                    errores == 0 ? errores = 0 : errores++;
+                    errores === 0 ? errores = 0 : errores++;
                 } else {
                     errores++;
                     $scope.color.Nombre = 'border-danger';
-                    $scope.mensaje = "El nombre debe de tener al menos 3 palabras"
+                    $scope.mensaje = "El nombre debe de tener al menos 3 palabras";
                 }
 
             } else {
@@ -46,11 +46,11 @@ angular.module("appcontroller", ['ngAnimate', 'ngSanitize', 'ui.bootstrap'])
             }
 
             //validacion de edad
-            if (($scope.datos.Fecha_n != "" || $scope.datos.Fecha_n != undefined) && errores == 0) {
+            if (($scope.datos.Fecha_n !== "" || $scope.datos.Fecha_n !== undefined) && errores === 0) {
                 if (edad > 15 && edad < 120) {
                     $scope.color.Fecha_n = 'border-success';
                     $scope.mensaje = "Ingresa los datos requeridos";
-                    errores == 0 ? errores = 0 : errores++;
+                    errores === 0 ? errores = 0 : errores++;
                 }
                 else {
                     $scope.color.Fecha_n = 'border-danger';
@@ -63,20 +63,19 @@ angular.module("appcontroller", ['ngAnimate', 'ngSanitize', 'ui.bootstrap'])
             }
 
             //validacion de correo
-            if (($scope.datos.Correo != "" && $scope.datos.Correo != undefined)) {
-                console.log("correo", $scope.datos.Correo);
-                $scope.color.Correo = 'border-success'
-                errores == 0 ? errores = 0 : errores++;
+            if (($scope.datos.Correo !== "" && $scope.datos.Correo !== undefined)) {
+                $scope.color.Correo = 'border-success';
+                errores === 0 ? errores = 0 : errores++;
             } else {
                 $scope.color.Correo = 'border-danger';
-                if (errores == 0) $scope.mensaje = "Ingresa el correo correctamente mail@direccion.com";
+                if (errores === 0) $scope.mensaje = "Ingresa el correo correctamente mail@direccion.com";
                 errores++;
             }
 
             //validacion de tema
-            console.log($scope.datos.tema)
-            if (($scope.datos.tema != "" && $scope.datos.tema != undefined && $scope.datos.tema != null)) {
-                if (errores == 0) {
+           
+            if (($scope.datos.tema !== "" && $scope.datos.tema !== undefined && $scope.datos.tema !== null)) {
+                if (errores === 0) {
                     $scope.color.tema = 'border-success';
                     $scope.mensaje = "Ingresa los datos requeridos";
                     errores = 0;
@@ -86,40 +85,32 @@ angular.module("appcontroller", ['ngAnimate', 'ngSanitize', 'ui.bootstrap'])
                 }
             } else {
                 $scope.color.tema = 'border-danger';
-                if (errores == 0) $scope.mensaje = "selecciona un tema";
+                if (errores === 0) $scope.mensaje = "selecciona un tema";
                 errores++;
             }
 
-            if (($scope.datos.Comentario != "" && $scope.datos.Comentario != undefined && $scope.datos.Comentario != null)) {
+            if (($scope.datos.Comentario !== "" && $scope.datos.Comentario !== undefined && $scope.datos.Comentario !== null)) {
                 $scope.color.Comentario = 'border-success';
-                errores == 0 ? errores = 0 : errores++;
+                errores === 0 ? errores = 0 : errores++;
 
             } else {
                 $scope.color.Comentario = 'border-danger';
-                if (errores == 0) $scope.mensaje = "Igresa un comentario";
+                if (errores === 0) $scope.mensaje = "Igresa un comentario";
                 errores++;
             }
-            $scope.color.mensaje = errores == 0 ? 'alert-primary':'alert-danger';
-        }
+            $scope.color.mensaje = errores === 0 ? 'alert-primary' : 'alert-danger';
+        };
 
         $scope.enviar = function () {
             $scope.validar();
-            $scope.mostrar = errores == 0 ? true : false;
-        }
+            $scope.mostrar = errores === 0 ? true : false;
+        };
 
         $scope.confirmar = function () {
-            $http({
-                method: 'post',
-                url: "controller.php",
-                data: $scope.datos
-            }).then(function (response) {
-                console.log(response);
-            });
-        }
-        $scope.Cancelar = function () {
-            $scope.datos = {}
             $scope.mostrar = false;
-        }
-
-
+        };
+        $scope.Cancelar = function () {
+            $scope.datos = {};
+            $scope.mostrar = false;
+        };
     });
